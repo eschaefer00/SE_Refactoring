@@ -1,7 +1,8 @@
 # SE_Refactoring
-Refactoring task for Software Engineering course 
 
-Useful functions of IntelliJ: 
+This repository has the purpose of exercising recatoring with Fowler's raw code. 
+
+These are IntteliJ's useful functions for refactoring that I have dicovered during the exercise: 
 
 - refactoring functions such as code cleanup and optimising imports
 - provided shortcuts for easy usage 
