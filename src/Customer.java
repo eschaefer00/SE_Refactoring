@@ -1,21 +1,31 @@
 
-import java.lang.*;
-import java.util.*;
+import java.util.Enumeration;
+import java.util.Vector;
 
 class Customer {
     private String name;
     private Vector rentals = new Vector();
-    public Customer (String newname){
+
+    public Customer(String newname) {
         name = newname;
-    };
+    }
+
+    ;
+
     public void addRental(Rental arg) {
         rentals.addElement(arg);
-    };
-    public String getName (){
+    }
+
+    ;
+
+    public String getName() {
         return name;
-    };
+    }
+
+    ;
+
     public String statement() {
-        Enumeration enum_rentals = rentals.elements();	    
+        Enumeration enum_rentals = rentals.elements();
         String result = "Rental Record for " + this.getName() + "\n";
         result += "\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n";
 
@@ -29,24 +39,24 @@ class Customer {
         return result;
     }
 
-    private double getTotalCharge(){
+    private double getTotalCharge() {
         double result = 0;
         Enumeration<Rental> enum_rentals = rentals.elements();
-        while(enum_rentals.hasMoreElements()) {
+        while (enum_rentals.hasMoreElements()) {
             Rental each = enum_rentals.nextElement();
-            result +=  each.movie.getCharge(each.getDaysRented());
+            result += each.movie.getCharge(each.getDaysRented());
         }
         return result;
     }
 
-    private double getTotalFrequentRenterPoints(){
+    private double getTotalFrequentRenterPoints() {
         double result = 0;
         Enumeration<Rental> enum_rentals = rentals.elements();
-        while(enum_rentals.hasMoreElements()) {
+        while (enum_rentals.hasMoreElements()) {
             Rental each = enum_rentals.nextElement();
             result = each.movie.getFrequentRenterPoints(each);
             if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) && each.getDaysRented() > 1)
-                result ++;
+                result++;
         }
         return result;
     }
